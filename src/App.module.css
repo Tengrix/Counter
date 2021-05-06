@@ -1,0 +1,28 @@
+import React, {useState} from 'react';
+import './App.css';
+
+type counterType = number;
+
+function App() {
+
+    const [counter, setCounter] = useState<counterType>(0)
+
+    return (
+        <div className="App">
+            <div>
+                {counter}
+            </div>
+            <span>
+        <button disabled={counter===5} onClick={() => {
+            setCounter(counter + 1)
+        }}>inc</button>
+      </span>
+            <button disabled={counter===0} onClick={() => {
+                setCounter(0)
+            }}>reset
+            </button>
+        </div>
+    );
+}
+
+export default App;
