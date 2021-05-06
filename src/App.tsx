@@ -1,26 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react';
+import Counter from "./Counter";
+import {useDispatch, useSelector} from "react-redux";
+import {AppRootStateType} from "./redux/store";
+import {CounterType, increaseAC, resetAC} from "./redux/counter-reducer";
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+    const counter = useSelector<AppRootStateType, CounterType>(state => state.counter)
+    const dispatch = useDispatch()
+
+    const increase = () => {
+        dispatch(increaseAC())
+    }
+    const reset = () => {
+        dispatch(resetAC())
+    }
+    return (
+        <div>
+            <Counter counter={counter}
+                     increase={increase}
+                     reset={reset}
+            />
+        </div>
+    );
 }
 
 export default App;

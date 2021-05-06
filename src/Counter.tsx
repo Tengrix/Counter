@@ -1,29 +1,28 @@
-import React, {useState} from 'react';
+import React from 'react';
 import './App.css';
 import s from './App.module.css'
+import {CounterType} from "./redux/counter-reducer";
 
-type counterType = number;
+type counterType = {
+    counter: CounterType;
+    increase: () => void
+    reset: () => void;
+}
 
-function App() {
-
-    const [counter, setCounter] = useState<counterType>(0)
-    let counterClassName = counter===5?s.counter:''
+function Counter(props: counterType) {
+    let counterClassName = props.counter === 5 ? s.counter : ''
     return (
-        <div className="App">
+        <div className={s.App}>
             <div className={counterClassName}>
-                {counter}
+                <h3 className={s.newCounter}>{props.counter}</h3>
             </div>
             <span>
-        <button disabled={counter===5} onClick={() => {
-            setCounter(counter + 1)
-        }}>inc</button>
+        <button className={s.btn} disabled={props.counter === 5} onClick={()=>{props.increase()}}>inc</button>
       </span>
-            <button disabled={counter===0} onClick={() => {
-                setCounter(0)
-            }}>reset
+            <button className={s.btn} disabled={props.counter === 0} onClick={()=>{props.reset()}}>reset
             </button>
         </div>
     );
 }
 
-export default App;
+export default Counter;

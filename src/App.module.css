@@ -1,28 +1,21 @@
-import React, {useState} from 'react';
-import './App.css';
-
-type counterType = number;
-
-function App() {
-
-    const [counter, setCounter] = useState<counterType>(0)
-
-    return (
-        <div className="App">
-            <div>
-                {counter}
-            </div>
-            <span>
-        <button disabled={counter===5} onClick={() => {
-            setCounter(counter + 1)
-        }}>inc</button>
-      </span>
-            <button disabled={counter===0} onClick={() => {
-                setCounter(0)
-            }}>reset
-            </button>
-        </div>
-    );
+.App{
+    background-color: yellow;
+    margin-left: 700px;
+    display: block;
+    text-align: center;
+    margin-top: 300px;
+    border: 5px solid orange;
+    width: 200px;
 }
-
-export default App;
+.counter{
+    color: red;
+}
+.btn {
+    font-size: 20px;
+    border-radius: 10px;
+    background: cornflowerblue;
+}
+.newCounter{
+    font-size: 30px;
+    display: contents;
+    }
