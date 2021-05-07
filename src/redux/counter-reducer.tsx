@@ -18,10 +18,7 @@ export const counterReducer = (state:CounterType = initialState, action:CounterA
             }
             return counter
         case "RESET-NUMBER":
-            if(counter===5){
-                counter = counter - 5
-            }
-            return counter
+            return 0
         default:
             return state
     }

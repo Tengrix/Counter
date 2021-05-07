@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import Counter from "./Counter";
 import {useDispatch, useSelector} from "react-redux";
 import {AppRootStateType} from "./redux/store";
